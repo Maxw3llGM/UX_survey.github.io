@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participation à un projet de recherche - Take part in a research project</title>
+    <style>
+        /* Minimalistic and Mobile-Friendly CSS */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #fcfcfc;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 550px;
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #111;
+        }
+        p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #555;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-weight: 600;
+        }
+        .btn-yes {
+            background-color: #000000;
+            color: white;
+        }
+        .btn-yes:hover {
+            background-color: #333333;
+        }
+        .btn-no {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+        .btn-no:hover {
+            background-color: #e1e1e1;
+        }
+        #result-section {
+            margin-top: 25px;
+            font-weight: 500;
+        }
+        a.study-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 28px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        a.study-link:hover {
+            background-color: #0056b3;
+        }
+        .broken-line {
+            border: 0; /* Removes default solid line */
+            border-top: 3px dashed #333; /* Makes a dashed line */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Participation à un projet de recherche </h1>
+        <h2>Take part in a research project</h2>
+        <p>
+            English below<br>
+
+            <p>
+                Ce projet de recherche a pour objectif de mieux comprendre les facteurs influençant les intentions d'achats lors du magasinage en ligne.
+            </p>
+            <p>
+            Lieu de participation : <b>555 Sherbrooke St W</b>, Montréal, QC, H3A 1E3, Schulich School of Music, <strong>Étage 8</strong> <br>
+            Durée de participation : 15-30 minutes <br>
+            <!-- Compensation : <strong>10$</strong> <br> -->
+            Lorsque vous soumettez ce formulaire, il ne collectera pas automatiquement vos détails tels que votre nom, votre âge et votre adresse e-mail, à moins que vous ne les fournissiez vous-même.
+            </p>
+        </p>
+            <hr class="broken-line">
+            <p>
+                The objective of this research project is to better understand the factors influencing purchase intentions during online shopping.
+            </p>
+            <p>
+                Location: <b>555 Sherbrooke St W</b>, Montréal, QC, H3A 1E3, Schulich School of Music, <strong>8th floor</strong> <br>
+                Duration: 15-30 minutes <br>
+                <!-- Compensation: <strong>10$</strong> <br> -->
+                When you submit this form, it will not automatically collect your details like name, age, and email address unless you provide it yourself.
+            </p>
+        </p>
+
+        <p>
+            To participate in this study, you must be <strong>18 years of age or older</strong>. 
+            Please confirm your age below to proceed.
+        </p>
+
+        <!-- Age Verification Buttons -->
+        <div id="verification-section" class="btn-group">
+            <button class="btn-yes" onclick="verifyAge(true)">J'ai 18 ans ou plus <br> I am 18 or older</button>
+            <button class="btn-no" onclick="verifyAge(false)">J'ai moins de 18 ans <br> I am under 18</button>
+        </div>
+
+        <!-- Hidden section that appears after clicking a button -->
+        <div id="result-section"></div>
+    </div>
+
+    <script>
+        function verifyAge(isAdult) {
+            const verificationSection = document.getElementById('verification-section');
+            const resultSection = document.getElementById('result-section');
+            
+            // Hide the buttons immediately after selection
+            verificationSection.style.display = 'none';
+
+            if (isAdult) {
+                // Show the study link if they are 18 or older
+                // Replace 'YOUR_LINK_HERE' with the actual URL to your survey/study
+                resultSection.innerHTML = `
+                    <p style="color: #28a745;">Merci de votre confirmation. Vous pouvez procéder à la prise de rendez-vous pour l'étude.<br> 
+                        Thank you for confirming. You may proceed to schedule a time for the study.</p>
+                    <a href="https://calendly.com/maxwell-gentili-morin-etsmtl/30min" class="study-link" target="_blank" rel="noopener noreferrer">Rendez-vous</a>
+                `;
+            } else {
+                // Show an error message if they are under 18
+                resultSection.innerHTML = `
+                    <p style="color: #dc3545;">Nous sommes désolés, mais vous devez avoir au moins 18 ans pour participer à cette étude. Merci de votre intérêt.<br>
+                        We're sorry, but you must be at least 18 years old to participate in this study. Thank you for your interest.
+                        </p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
